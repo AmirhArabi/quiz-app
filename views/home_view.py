@@ -5,8 +5,8 @@ from utils.utils import MainNavBar
 
 def home_view(page: ft.Page):
     page.title = "Home"
+    page.bgcolor = 'white'
     user = page.session.get('user_data')
-    print(user['username'])
     page.navigation_bar = MainNavBar(page)
 
     def show_image_in_dialog(page: ft.Page, image_src: str):

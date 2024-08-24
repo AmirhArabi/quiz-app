@@ -3,8 +3,11 @@ from router import route
 
 
 def main(page: ft.Page):
-    page.window_width = 390
-    page.window_height = 850
+    page.window_width = 400
+    page.fonts = {
+        'yekan': '/fonts/YekanBakhFaNum-Bold.ttf'
+    }
+    page.window_height = 870
     page.platform = "ios"
     page.padding = 10
     page.bgcolor = "#f1f1f1"
@@ -12,4 +15,5 @@ def main(page: ft.Page):
     page.go(page.route)
 
 
-ft.app(target=main)
+ft.app(target=main, assets_dir='assets')
+

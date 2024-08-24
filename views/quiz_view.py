@@ -375,11 +375,10 @@ class QuizApp:
 
     def update_score(self):
         data = self.page.session.get("user_data")
-        print(self.answer_list)
-        print(data['token'])
+        print(len(self.answer_list), self.answer_list)
         url = "http://127.0.0.1:8000/api/game/submit"
         headers = {
-            "Authorization": "{}".format(data['token']),
+            "Authorization": "token {}".format(data['token']),
             "Content-Type": "application/json"
         }
         data = {
@@ -388,7 +387,6 @@ class QuizApp:
         }
 
         response = requests.post(url, headers=headers, json=data)
-        print(response.json())
 
 def quiz_view(page):
     quiz_app = QuizApp(page)
